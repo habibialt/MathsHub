@@ -1,0 +1,10 @@
+const Q={f:[["Solve 3x + 5 = 20","x = 5",["x = 4","x = 6","x = 15"]],["Area of a rectangle 8 cm by 5 cm","40 cm²",["13 cm²","26 cm²","80 cm²"]],["20% of 150","30",["20","15","300"]],["Simplify the ratio 12 : 18","2 : 3",["3 : 2","4 : 5","6 : 9 is simplest"]],["Perimeter of a square with side 7 cm","28 cm",["14 cm","49 cm","21 cm"]],["1/2 + 1/3","5/6",["2/5","1/6","2/6"]],["Hypotenuse of a right triangle with sides 3 and 4","5",["7","6","25"]],["Mean of 4, 6, 8, 10","7",["6","8","28"]]],
+h:[["Solve x² − 5x + 6 = 0","x = 2 or x = 3",["x = −2 or −3","x = 1 or 6","x = 5 or 6"]],["Exact value of sin 30°","1/2",["√3/2","1","√2/2"]],["A price after a 20% increase is £60. The original price?","£50",["£48","£72","£52"]],["Volume of a sphere of radius 3","36π",["12π","9π","27π"]],["Simplify (x² − 9)/(x − 3)","x + 3",["x − 3","x² + 3","3"]],["Gradient of the line through (1, 2) and (3, 8)","3",["2","6","1/3"]],["Exact value of tan 45°","1",["0","√3","1/2"]],["Expand (x + 2)²","x² + 4x + 4",["x² + 4","x² + 2x + 4","x² + 4x + 2"]]]};
+let t='f',i=0,ok=0,n=0,done=false;const $=id=>document.getElementById(id);
+function show(){done=false;const [q,a,w]=Q[t][i%Q[t].length],o=[a,...w].sort(()=>Math.random()-.5);
+ $('q').innerHTML='<h3></h3>';$('q').firstChild.textContent=q;$('fb').textContent='';$('next').hidden=true;
+ o.forEach(x=>{const b=document.createElement('button');b.className='opt';b.textContent=x;b.onclick=()=>{if(done)return;done=true;n++;
+  const g=x===a;if(g)ok++;b.classList.add(g?'ok':'bad');if(!g)[...$('q').querySelectorAll('.opt')].find(e=>e.textContent===a).classList.add('ok');
+  $('fb').textContent=g?'Correct!':'Not quite. The answer is '+a+'.';$('score').textContent='Score '+ok+' / '+n;$('next').hidden=false};$('q').appendChild(b)})}
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));b.classList.add('on');t=b.dataset.t;i=0;ok=n=0;$('score').textContent='Score 0 / 0';show()});
+$('next').onclick=()=>{i++;show()};show();

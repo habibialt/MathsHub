@@ -1,0 +1,8 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Appendix – Maths Hub</title><link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>π</text></svg>"><link rel="stylesheet" href="css/games.css"></head><body class="enter">
+<header><a href="calculator.html" class="back">← Back to calculator</a><h1>Minecraft 1.8.8</h1></header>
+<main class="cards" id="cards"><article class="card"><div class="thumb"></div><h2>Eaglercraft 1.8.8</h2><p class="ver">Version 1.8.8 (EaglercraftX)</p><button class="play" id="play">Play</button></article></main>
+<section id="player" hidden><div class="bar"><button id="pfull">Fullscreen</button><button id="pclose">Close</button></div><iframe id="frame" allow="fullscreen; autoplay; clipboard-write" allowfullscreen></iframe></section>
+<script>const $=i=>document.getElementById(i),GAME="games/1.8.8/index.html";
+$('play').onclick=()=>{$('frame').src=GAME;$('player').hidden=false;$('cards').hidden=true};
+$('pfull').onclick=()=>$('frame').requestFullscreen&&$('frame').requestFullscreen();
+$('pclose').onclick=()=>{$('frame').src='about:blank';$('player').hidden=true;$('cards').hidden=false};</script></body></html>
